@@ -29,22 +29,23 @@ function updateBannerContent() {
 }
 
 // Bullet points for each slide: The following 'for' loop adds a '<div>' element with the class "dot" inside the element with the class "dots" for each element in the slides array.//
-for (let i=0; i<slides.length; i++) {
+for (let i = 0; i < slides.length; i ++) {
 	let dot = '<div class="dot"></div>'
 	dots.innerHTML += dot
 }
 let dot = document.querySelectorAll(".dot")
-console.log(dot)
+
 dot[0].classList.add("dot_selected") // Adds the "dot_selected" class to the first bullet point to mark it as active.//
+
 const arrowLeft = document.querySelector(".arrow_left")
 
 arrowLeft.addEventListener("click", () => {
 	dot[slideNbr].classList.remove("dot_selected")
 	
-	if (slideNbr===0){
+	if (slideNbr === 0){
 		slideNbr = slides.length - 1
 	} else {
-		slideNbr--
+		slideNbr --
 	}
 
 	updateBannerContent();
@@ -57,10 +58,10 @@ const arrowRight = document.querySelector(".arrow_right")
 arrowRight.addEventListener("click", () => {
 	dot[slideNbr].classList.remove("dot_selected") // Removes the "dot_selected" class from the selected bullet point: the point will no longer be highlighted.//
 	
-	if (slideNbr===slides.length - 1){ // 'if' condition checks if we are on the last slide of the carousel. slides.length - 1 returns the index of the last slide, as indices start from 0.//
+	if (slideNbr === slides.length - 1){ // 'if' condition checks if we are on the last slide of the carousel. slides.length - 1 returns the index of the last slide, as indices start from 0.//
 		slideNbr = 0 // If it's the last slide, this line resets it.//
 	} else {
-		slideNbr++ // If the condition in the 'if' statement is not met (i.e., if we are not on the last slide), then slideNbr + 1, which takes us to the next slide.//
+		slideNbr ++ // If the condition in the 'if' statement is not met (i.e., if we are not on the last slide), then slideNbr + 1, which takes us to the next slide.//
 	}	
 
 	updateBannerContent(); 
